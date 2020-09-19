@@ -7,6 +7,7 @@
 
 QtTicker::QtTicker(QWidget *parent)
     : QMainWindow(parent)
+	, ui(new Ui::QtTickerClass())
 {
     ui->setupUi(this);
 }
