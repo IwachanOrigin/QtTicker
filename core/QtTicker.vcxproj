@@ -114,6 +114,7 @@ xcopy /Y $(QTDIR)\plugins\imageformats $(OutDir)\imageformats\</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="stringimagecreater.cpp" />
     <QtRcc Include="qtticker.qrc" />
     <QtUic Include="qtticker.ui" />
     <QtMoc Include="qtticker.h" />
@@ -123,6 +124,9 @@ xcopy /Y $(QTDIR)\plugins\imageformats $(OutDir)\imageformats\</Command>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="qdirect3d11widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="stringimagecreater.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

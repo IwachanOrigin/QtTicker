@@ -41,6 +41,9 @@
     <ClCompile Include="qdirect3d11widget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stringimagecreater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="qtticker.ui">
@@ -49,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="qdirect3d11widget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="stringimagecreater.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
