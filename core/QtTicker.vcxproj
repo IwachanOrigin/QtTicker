@@ -46,6 +46,34 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PostBuildEvent>
+      <Command>echo Qtライブラリを $(QTDIR) から $(SolutionDir)$(Platform)\$(Configuration) にコピーします.
+
+xcopy "$(QTDIR)\bin\Qt5Cored.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+xcopy "$(QTDIR)\bin\Qt5Guid.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+xcopy "$(QTDIR)\bin\Qt5Widgetsd.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+xcopy "$(QTDIR)\bin\Qt5WebSocketsd.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+xcopy "$(QTDIR)\bin\Qt5Networkd.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+
+xcopy /Y $(QTDIR)\plugins\platforms $(OutDir)\platforms\
+xcopy /Y $(QTDIR)\plugins\imageformats $(OutDir)\imageformats\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PostBuildEvent>
+      <Command>echo Qtライブラリを $(QTDIR) から $(SolutionDir)$(Platform)\$(Configuration) にコピーします.
+
+xcopy "$(QTDIR)\bin\Qt5Core.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+xcopy "$(QTDIR)\bin\Qt5Gui.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+xcopy "$(QTDIR)\bin\Qt5Widgets.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+xcopy "$(QTDIR)\bin\Qt5WebSockets.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+xcopy "$(QTDIR)\bin\Qt5Network.dll" "$(SolutionDir)$(Platform)\$(Configuration)" /Y
+
+xcopy /Y $(QTDIR)\plugins\platforms $(OutDir)\platforms\
+xcopy /Y $(QTDIR)\plugins\imageformats $(OutDir)\imageformats\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>msvc2017_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>

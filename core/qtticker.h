@@ -1,4 +1,7 @@
-#pragma once
+/**
+ * @copyright Copyright (c) Yuji Iwanaga
+ * @date 19th Sep. 2020
+ */
 
 #include <QtWidgets/QMainWindow>
 #include "ui_qtticker.h"
