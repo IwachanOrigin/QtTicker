@@ -29,7 +29,8 @@
  * --------------------------------------------------------------------------------
  */
 
-#pragma once
+#ifndef QDIRECT3D11WIDGET_H
+#define QDIRECT3D11WIDGET_H
 
 #include <stdexcept>
 
@@ -177,3 +178,5 @@ inline void ThrowIfFailed(HRESULT hr)
 }
 
 #define DXCall(func) ThrowIfFailed(func)
+
+#endif

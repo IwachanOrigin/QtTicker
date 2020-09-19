@@ -11,3 +11,8 @@ QtTicker::QtTicker(QWidget *parent)
 {
     ui->setupUi(this);
 }
+
+QtTicker::~QtTicker()
+{
+}
+
