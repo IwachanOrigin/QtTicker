@@ -18,18 +18,30 @@ class StringImageCreater : public QObject
     Q_OBJECT
 
 public:
-    StringImageCreater();
-	~StringImageCreater();
+    explicit StringImageCreater();
+    ~StringImageCreater();
 
-    void setText(const QString text) { mText = text; }
-    void setImageWidth(const int width) { mImageWidth = width; }
-    void setImageHeight(const int height) { mImageHeight = height; }
-    void setFont(const QFont font) { mFont = font; }
-    void setFontColor(const QColor color) { mColor = color; }
-    void setFontSize(const uint32_t size) { mFontSize = size; }
+    void setText(const QString text) {
+        mText = text;
+    }
+    void setImageWidth(const int width) {
+        mImageWidth = width;
+    }
+    void setImageHeight(const int height) {
+        mImageHeight = height;
+    }
+    void setFont(const QFont font) {
+        mFont = font;
+    }
+    void setFontColor(const QColor color) {
+        mColor = color;
+    }
+    void setFontSize(const uint32_t size) {
+        mFontSize = size;
+    }
 
     QImage generate();
-    
+
 private:
     QString mText;
     int mImageWidth;

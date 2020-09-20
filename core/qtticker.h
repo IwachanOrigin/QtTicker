@@ -8,7 +8,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QString>
-#include <QList>
+#include <QFont>
+#include <QSize>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 
@@ -21,13 +22,27 @@ class QtTicker : public QMainWindow
 
 public:
     QtTicker(QWidget *parent = Q_NULLPTR);
-	~QtTicker();
+    ~QtTicker();
 
 private:
     Ui::QtTickerClass *ui;
 
-	QDirect3D11Widget *m_pScene;
-	QList<QGraphicsPixmapItem *> mListStrImg;
+    QDirect3D11Widget *mDx11Scene;
+    QGraphicsScene *mGraphicsScene;
+    QGraphicsPixmapItem *mStrImg;
+    QSize mWindowSize;
+    QFont mFont;
+    double mScrollPosPeriod;
+    double mMovingAmount;
+    double mScrollPos;
+
+    void adjustWindowSize();
+    void connectSlots();
+
+private slots:
+    void init(bool success);
+    void tick();
+    void render();
 };
 
 #endif
