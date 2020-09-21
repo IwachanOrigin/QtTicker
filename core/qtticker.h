@@ -21,7 +21,7 @@ class QtTicker : public QMainWindow
     Q_OBJECT
 
 public:
-    QtTicker(QWidget *parent = Q_NULLPTR);
+    explicit QtTicker(QWidget *parent = Q_NULLPTR);
     ~QtTicker();
 
 private:
@@ -36,7 +36,6 @@ private:
     double mMovingAmount;
     double mScrollPos;
 
-    void adjustWindowSize();
     void connectSlots();
 
 private slots:

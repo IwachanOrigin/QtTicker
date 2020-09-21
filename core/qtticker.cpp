@@ -14,10 +14,9 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 
-
 QtTicker::QtTicker(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::QtTickerClass())
+    , ui(new Ui::QtTickerClass)
     , mWindowSize(1920, 90)
     , mMovingAmount(0.0)
     , mScrollPos(0.0)
@@ -27,14 +26,14 @@ QtTicker::QtTicker(QWidget *parent)
     mDx11Scene = ui->view;
 
     /* init moving amount */
-    mMovingAmount = 0.5;
+    mMovingAmount = 0.4;
 
     /* init position. */
     mScrollPos = mWindowSize.width();
     mScrollPosPeriod = 0;
 
     /* init font */
-    mFont = QFont("Times", 36);
+    mFont = QFont("Times", 48);
     QFontMetrics fm(mFont);
 
     /* create scene */
@@ -62,12 +61,18 @@ QtTicker::QtTicker(QWidget *parent)
     QGraphicsView *graphicsView = new QGraphicsView(this);
     graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     graphicsView->setScene(mGraphicsScene);
     ui->view->layout()->addWidget(graphicsView);
 
     /* connection slots */
-    adjustWindowSize();
     connectSlots();
+
+	/* adjust window size */
+	this->setFixedSize(mWindowSize.width(), mWindowSize.height());
+
+	/* move window start position */
+	this->move(0, 0);
 
     delete strImageCreater;
 }
@@ -77,12 +82,6 @@ QtTicker::~QtTicker()
     delete mStrImg;
     delete mDx11Scene;
 }
-
-void QtTicker::adjustWindowSize()
-{
-    resize(mWindowSize.width(), mWindowSize.height());
-}
-
 
 void QtTicker::connectSlots()
 {
@@ -112,7 +111,7 @@ void QtTicker::tick()
 
 void QtTicker::render()
 {
-    mStrImg->setPos(mScrollPos, mWindowSize.height());
+    mStrImg->setPos(mScrollPos, 0);
     /* check scroll position end.  */
     if (mScrollPos < (-mScrollPosPeriod)) {
         mScrollPos = mWindowSize.width();
