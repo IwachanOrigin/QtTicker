@@ -11,7 +11,7 @@ DirectX 11 is used for the drawing process, enabling smooth rendering using the 
 Before running, you need to configure Visual Studio to use Qt.
 1. git clone this repository.
 2. open 'QtTicker.sln'
-3. Please Build & Run!!
+3. Please Build & Run😁
 
 ## License
 This software is released under the MIT License, see LICENSE.
