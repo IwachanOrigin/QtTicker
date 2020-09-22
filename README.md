@@ -1,6 +1,8 @@
 # QtTicker
 Ticker software using Qt.
 DirectX 11 is used for the drawing process, enabling smooth rendering using the GPU.
+
+# Demo
 ![QtTicker](https://user-images.githubusercontent.com/12496951/93915777-740f0900-fd43-11ea-8b7e-bb076c265b2c.gif)
 
 ## Dependency
